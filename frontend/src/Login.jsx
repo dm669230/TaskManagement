@@ -14,7 +14,10 @@ function Login() {
       localStorage.setItem('token', res.data.token);
       navigate('/tasks');
     } catch (err) {
-      alert('Login failed');
+      console.log("Error:", err.response.data);
+      // alert(err.response.data.message);
+      navigate("/register")
+      
     }
   };
 
@@ -24,7 +27,7 @@ function Login() {
       <form onSubmit={handleLogin}>
         <input type="email" placeholder="username" onChange={(e) => setEmail(e.target.value)} required />
         <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-        <button type="submit">Login</button>
+        <button type="submit" onClick={handleLogin}>Login</button>
       </form>
       <p>Don't have an account? <a href="/register">Register</a></p>
     </div>

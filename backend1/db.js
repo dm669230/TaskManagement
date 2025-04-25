@@ -14,7 +14,7 @@ db.run(
         );
 db.run(
     `CREATE TABLE IF NOT EXISTS tasks (id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER, title TEXT,
-    task TEXT, description TEXT, effort_to_complete INTEGER, due_date TEXT);`
+    status TEXT, description TEXT, etc INTEGER, due_date TEXT);`
         );
 
 

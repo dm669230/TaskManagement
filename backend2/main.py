@@ -87,20 +87,21 @@ def get_excel(req : Request,db: Session = Depends(get_db)):
 
 @app.post('/task_add')
 @login_required
-def add_tasks(req : Request, task: TaskCreate,db: Session = Depends(get_db)):
-    return add_task(req,task, db)
+def add_tasks(req : Request, task: TaskCreate, db: Session = Depends(get_db)):
+    print(task)
+    return add_task(req, task, db)
 
 @app.patch('/task_update')
 @login_required
 def update_tasks(req : Request, update_body : TaskUpdate,db: Session = Depends(get_db)):
     return update_task(req, update_body, db)
 
-@app.post('/task_get')
+@app.get('/task_get')
 @login_required
 def get_tasks(req : Request, db: Session = Depends(get_db)):
     return get_task(req, db)
 
-@app.post('/task_delete')
+@app.delete('/task_delete/{id}')
 @login_required
-def delete_tasks(req : Request, task: TaskDelete,db: Session = Depends(get_db)):
-    return delete_task(req, db, task)
+def delete_tasks(req : Request, id: int, db: Session = Depends(get_db)):
+    return delete_task(req, db, id)

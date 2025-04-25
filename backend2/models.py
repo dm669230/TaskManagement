@@ -14,15 +14,15 @@ class Tasks(Base):
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("user.id"))
     title = Column(String)
-    task = Column(String)
+    status = Column(String)
     description = Column(String)
-    effort_to_complete = Column(Integer) # in days
+    etc = Column(Integer) # in days
     due_date = Column(String)
 
-{
-    "title":"debug",
-    "status": 'complete',
-    "description": "Router path for /task_add bug fixed in backend2",
-    "etc": 2,
-    "due_date":"01-04-2025"
- }
+# {
+#     "title":"debug",
+#     "status": 'complete',
+#     "description": "Router path for /task_add bug fixed in backend2",
+#     "etc": 2,
+#     "due_date":"01-04-2025"
+#  }
