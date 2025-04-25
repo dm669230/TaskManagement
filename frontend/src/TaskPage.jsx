@@ -43,7 +43,6 @@ function TaskPage() {
   
   const handleUpdateTask = async (title) => {
     try {
-      // const user_id = parseJwt(token).id;
         await axios.patch('http://localhost:8000/task_update', {title, status:"Complete"}, {headers: {Authorization: "Bearer "+ token}});
     fetchTasks();
     } catch (err) {

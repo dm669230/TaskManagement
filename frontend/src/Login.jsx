@@ -15,7 +15,6 @@ function Login() {
       navigate('/tasks');
     } catch (err) {
       console.log("Error:", err.response.data);
-      // alert(err.response.data.message);
       navigate("/register")
       
     }

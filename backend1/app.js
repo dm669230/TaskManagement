@@ -1,5 +1,4 @@
 const express = require('express');
-// const cars = require('cars');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const routes = require('./routes');

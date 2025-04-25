@@ -1,6 +1,5 @@
-from fastapi import FastAPI, Depends, HTTPException
+from fastapi import HTTPException
 from models import Tasks
-from schema import TaskCreate,TaskDelete, TaskUpdate
 import pandas as pd
 from io import BytesIO
 from starlette.responses import StreamingResponse

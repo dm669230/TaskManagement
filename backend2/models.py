@@ -16,13 +16,6 @@ class Tasks(Base):
     title = Column(String)
     status = Column(String)
     description = Column(String)
-    etc = Column(Integer) # in days
+    etc = Column(Integer)  #it stands for effort to complete
     due_date = Column(String)
 
-# {
-#     "title":"debug",
-#     "status": 'complete',
-#     "description": "Router path for /task_add bug fixed in backend2",
-#     "etc": 2,
-#     "due_date":"01-04-2025"
-#  }

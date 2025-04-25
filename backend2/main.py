@@ -12,20 +12,22 @@ from fastapi.security import OAuth2PasswordBearer
 from schema import TaskUpdate, TaskCreate, TaskDelete
 from fastapi.middleware.cors import CORSMiddleware
 import os
-# from backend2.models import User, Task
-from controller import get_task, update_task, delete_task, add_task, get_excel_report  # Assuming you have a function to get tasks
+from controller import get_task, update_task, delete_task, add_task, get_excel_report  
+
+
 SECRET_KEY = "v8Q!z&7P@kR#2sM$gT*F9nL0bX!uCwYd"
 app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or ["http://localhost:3000"] if you want to be specific
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# OAuth2 scheme
+
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
-# Dependency for user DB
+
 def get_db():
     db = SessionLocal()
     try:
@@ -33,17 +35,8 @@ def get_db():
     finally:
         db.close()
 
-# Dependency for tasks DB
-# def get_tasks_db():
-#     db = TasksSessionLocal()
-#     try:
-#         yield db
-#     finally:
-#         db.close()
 
-# Dependency to simulate user extraction from JWT token
 def get_current_user():
-    # Assuming JWT token is decoded here, returning dummy user data
     return {"id": 1, "username": "example_user"}
 
 def login_required(func):
